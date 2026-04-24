@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
+//import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.location.Location
 import android.location.LocationListener
@@ -30,7 +30,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CardScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+class CardScrollingActivity : AppCompatActivity(), LocationListener {
     private var loggedInUser : User? = null
     private lateinit var sensorManager: SensorManager
 //    private var mAccel: Sensor? = null;
@@ -165,7 +165,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
 
     override fun onPause() {
         super.onPause()
-        sensorManager.unregisterListener(this)
+//        sensorManager.unregisterListener(this)
     }
 
 
