@@ -126,7 +126,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
 //        })
     }
 
-//    override fun onSensorChanged(event: SensorEvent?) {
+    override fun onSensorChanged(event: SensorEvent?) {
 //        if (event != null) {
 //            var userInfoContainer = UserInfoContainer(null, event.values[0].toString(), loggedInUser?.token)
 //            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
@@ -150,7 +150,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
 //                }
 //            })
 //        }
-//    }
+    }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         return
