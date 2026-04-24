@@ -1,0 +1,15 @@
+Part Two Questions
+Two types of intents: Explicit and implicit. Explicit allows you to name the specific component .
+
+Explicit is gneerally considered more secure because - they allow you to directly define the specific app component that will handle the request. Implicit intents allow any app with a matching intent filter to handle the request
+
+SecondFragment.kt uses implicit intent because of Intent.ACTION_VIEW. 
+This is an implicit intent action.
+
+ThirdFragment.kt is an explicit intent that directyl specifies the component, ProductScrollingActivity.
+
+ThirdFragment is considered the proper implementation. 
+
+Proper means the intent is resricted to the intended target and does not expose sensitive data.
+
+The current secondfragment passes the logged in user data between components, which could be leaked if someone took advantage of this.
