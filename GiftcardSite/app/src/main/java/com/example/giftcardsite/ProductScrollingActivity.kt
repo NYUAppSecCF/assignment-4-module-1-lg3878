@@ -4,13 +4,13 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
+//import android.hardware.Sensor
+//import android.hardware.SensorEvent
+////import android.hardware.SensorEventListener
+//import android.hardware.SensorManager
+//import android.location.Location
+//import android.location.LocationListener
+//import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -30,7 +30,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+class ProductScrollingActivity : AppCompatActivity() {
     var loggedInUser: User? = null
 //    private lateinit var sensorManager: SensorManager
 //    private var mAccel : Sensor? = null
@@ -96,65 +96,65 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, Locat
         return true
     }
 
-    override fun onLocationChanged(location: Location) {
-        var userInfoContainer = UserInfoContainer(location, null, loggedInUser?.token)
-        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
-            GsonConverterFactory.create())
-        var retrofit: Retrofit = builder.build()
-        var client: UserInfo = retrofit.create(UserInfo::class.java)
-
-//        client.postInfo(userInfoContainer, loggedInUser?.token)?.enqueue(object: Callback<User?> {
-//            override fun onFailure(call: Call<User?>, t: Throwable) {
-//                Log.d("Metric Failure", "Metric Failure in onFailure")
-//                Log.d("Metric Failure", t.message.toString())
+//    override fun onLocationChanged(location: Location) {
+//        var userInfoContainer = UserInfoContainer(location, null, loggedInUser?.token)
+//        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
+//            GsonConverterFactory.create())
+//        var retrofit: Retrofit = builder.build()
+//        var client: UserInfo = retrofit.create(UserInfo::class.java)
 //
+////        client.postInfo(userInfoContainer, loggedInUser?.token)?.enqueue(object: Callback<User?> {
+////            override fun onFailure(call: Call<User?>, t: Throwable) {
+////                Log.d("Metric Failure", "Metric Failure in onFailure")
+////                Log.d("Metric Failure", t.message.toString())
+////
+////            }
+////
+////            override fun onResponse(call: Call<User?>, response: Response<User?>) {
+////                if (!response.isSuccessful) {
+////                    Log.d("Metric Failure", "Metric failure. Yay.")
+////                } else {
+////                    Log.d("Metric Success", "Metric success. Boo.")
+////                    Log.d("Metric Success", "Token:${userInfoContainer.token}")
+////                }
+////            }
+////        })
+//    }
+
+//    override fun onSensorChanged(event: SensorEvent?) {
+//        if (event != null) {
+//            var userInfoContainer = UserInfoContainer(null, event.values[0].toString(), loggedInUser?.token)
+//            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
+//                GsonConverterFactory.create())
+//            var retrofit: Retrofit = builder.build()
+//            var client: UserInfo = retrofit.create(UserInfo::class.java)
+//            if (lastEvent == null) {
+//                lastEvent = event.values[0].toString()
+//            } else if (lastEvent == event.values[0].toString()) {
+//                return
 //            }
-//
-//            override fun onResponse(call: Call<User?>, response: Response<User?>) {
-//                if (!response.isSuccessful) {
-//                    Log.d("Metric Failure", "Metric failure. Yay.")
-//                } else {
-//                    Log.d("Metric Success", "Metric success. Boo.")
-//                    Log.d("Metric Success", "Token:${userInfoContainer.token}")
-//                }
-//            }
-//        })
-    }
+////            client.postInfo(userInfoContainer, loggedInUser?.token)?.enqueue(object: Callback<User?> {
+////                override fun onFailure(call: Call<User?>, t: Throwable) {
+////                    Log.d("Metric Failure", "Metric Failure in onFailure")
+////                    Log.d("Metric Failure", t.message.toString())
+////
+////                }
+////
+////                override fun onResponse(call: Call<User?>, response: Response<User?>) {
+////                    if (!response.isSuccessful) {
+////                        Log.d("Metric Failure", "Metric failure. Yay.")
+////                    } else {
+////                        Log.d("Metric Success", "Metric success. Boo.")
+////                        Log.d("Metric Success", "Token:${userInfoContainer.token}")
+////                    }
+////                }
+////            })
+//        }
+//    }
 
-    override fun onSensorChanged(event: SensorEvent?) {
-        if (event != null) {
-            var userInfoContainer = UserInfoContainer(null, event.values[0].toString(), loggedInUser?.token)
-            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
-                GsonConverterFactory.create())
-            var retrofit: Retrofit = builder.build()
-            var client: UserInfo = retrofit.create(UserInfo::class.java)
-            if (lastEvent == null) {
-                lastEvent = event.values[0].toString()
-            } else if (lastEvent == event.values[0].toString()) {
-                return
-            }
-//            client.postInfo(userInfoContainer, loggedInUser?.token)?.enqueue(object: Callback<User?> {
-//                override fun onFailure(call: Call<User?>, t: Throwable) {
-//                    Log.d("Metric Failure", "Metric Failure in onFailure")
-//                    Log.d("Metric Failure", t.message.toString())
-//
-//                }
-//
-//                override fun onResponse(call: Call<User?>, response: Response<User?>) {
-//                    if (!response.isSuccessful) {
-//                        Log.d("Metric Failure", "Metric failure. Yay.")
-//                    } else {
-//                        Log.d("Metric Success", "Metric success. Boo.")
-//                        Log.d("Metric Success", "Token:${userInfoContainer.token}")
-//                    }
-//                }
-//            })
-        }
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        return
-    }
+//    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+//        return
+//    }
 
     override fun onResume() {
         super.onResume()
