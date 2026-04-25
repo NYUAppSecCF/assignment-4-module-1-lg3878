@@ -9,7 +9,7 @@ import android.hardware.SensorEvent
 //import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.location.Location
-import android.location.LocationListener
+//import android.location.LocationListener
 //import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
@@ -30,7 +30,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CardScrollingActivity : AppCompatActivity(), LocationListener {
+class CardScrollingActivity : AppCompatActivity() {
     private var loggedInUser : User? = null
     private lateinit var sensorManager: SensorManager
 //    private var mAccel: Sensor? = null;
@@ -98,7 +98,7 @@ class CardScrollingActivity : AppCompatActivity(), LocationListener {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-    override fun onLocationChanged(location: Location) {
+    //override fun onLocationChanged(location: Location) {
 
         //Metric collection removed
 
@@ -124,9 +124,9 @@ class CardScrollingActivity : AppCompatActivity(), LocationListener {
 //                }
 //            }
 //        })
-    }
+    //}
 
-    override fun onSensorChanged(event: SensorEvent?) {
+    //override fun onSensorChanged(event: SensorEvent?) {
 //        if (event != null) {
 //            var userInfoContainer = UserInfoContainer(null, event.values[0].toString(), loggedInUser?.token)
 //            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
@@ -150,11 +150,11 @@ class CardScrollingActivity : AppCompatActivity(), LocationListener {
 //                }
 //            })
 //        }
-    }
+    //}
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        return
-    }
+    //override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+       // return
+    //}
 
     override fun onResume() {
         super.onResume()
